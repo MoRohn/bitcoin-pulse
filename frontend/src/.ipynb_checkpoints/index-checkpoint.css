@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes waveSlide {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+body {
+ margin: 0;
+ padding: 0;
+ background-color: #000;
+ font-family: Arial, Helvetica, sans-serif;
+}

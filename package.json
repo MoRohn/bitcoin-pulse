@@ -1,0 +1,17 @@
+{
+  "name": "bitcoin-flow",
+  "scripts": {
+    "backend": "uvicorn backend.main:app --reload",
+    "frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.174.0"
+  }
+}
