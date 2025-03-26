@@ -16,9 +16,13 @@ app = FastAPI()
 
 # Serve static files from the React build directory
 current_dir = Path(__file__).resolve().parent  # directory of main.py
-static_dir = current_dir.parent / "frontend" / "src"  # path to frontend/dist
-if static_dir.is_dir():
+static_dir = current_dir.parent / "frontend" / "dist"  # path to frontend/dist
+if static_dir.exists():
     app.mount("/", StaticFiles(directory=str(static_dir), html=True), name="static")
+else:
+    @app.get("/")
+    def read_root():
+        return {"message": "Static files not found. Please verify your build process."}
 
 # Define allowed origins (adjust for your domains)
 origins = [
