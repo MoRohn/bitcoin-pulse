@@ -75,7 +75,7 @@ const App = () => {
   const [historicalData, setHistoricalData] = useState([]);
   const [realTime, setRealTime] = useState(null);
   const [avgSentiment, setAvgSentiment] = useState(null);
-  const backendUrl = 'http://localhost:8000/bitcoin-pulse';
+  const backendUrl = import.meta.env.VITE_API_URL;
 
   // Controls for two wave layers.
   const waveControls1 = useAnimation();

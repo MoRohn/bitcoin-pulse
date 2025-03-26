@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from fastapi import FastAPI
+from fastapi import APIRouter, FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 import requests
@@ -13,6 +13,14 @@ from datetime import datetime
 load_dotenv()
 
 app = FastAPI()
+
+api_router = APIRouter(prefix="/bitcoin-pulse")
+
+@api_router.get("")
+def get_pulse():
+    return {"data": "heartbeat data"}
+
+app.include_router(api_router)
 
 # Serve static files from the React build directory
 current_dir = Path(__file__).resolve().parent  # directory of main.py
